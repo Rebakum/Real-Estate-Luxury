@@ -1,0 +1,122 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/ZL6H5hV/download.jpg",
+      "title": "Stunning Mansion with Ocean View",
+      "segment_name": "Luxury",
+      "description": "This breathtaking mansion offers unparalleled luxury living with panoramic views of the ocean. Featuring exquisite architecture and lavish amenities, it is the epitome of elegance and sophistication.",
+      "price": 15000000,
+      "status": "sale",
+      "area_sq_ft": 12000,
+      "location": "Malibu, California",
+      "facilities": ["Infinity Pool", "Spa", "Gym", "Wine Cellar", "Home Theater"]
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/vsY13Qb/download.jpg",
+      "title": "Penthouse in the Heart of Manhattan",
+      "segment_name": "Luxury",
+      "description": "Experience luxury living at its finest in this stunning penthouse located in the heart of Manhattan. With floor-to-ceiling windows offering breathtaking city views, this residence offers unparalleled elegance and sophistication.",
+      "price": 25000000,
+      "status": "sale",
+      "area_sq_ft": 5000,
+      "location": "Manhattan, New York",
+      "facilities": ["Private Terrace", "Concierge Service", "Fitness Center", "Valet Parking"]
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/q9T5SmQ/images.jpg",
+      "title": "Exclusive Villa in Beverly Hills",
+      "segment_name": "Luxury",
+      "description": "Nestled in the prestigious neighborhood of Beverly Hills, this exclusive villa offers unrivaled luxury and privacy. With meticulously landscaped gardens, a private pool, and state-of-the-art amenities, this property is perfect for discerning buyers.",
+      "price": 18000000,
+      "status": "sale",
+      "area_sq_ft": 10000,
+      "location": "Beverly Hills, California",
+      "facilities": ["Swimming Pool", "Tennis Court", "Home Theater", "Wine Cellar"]
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/qNF7JxJ/images.jpg",
+      "title": "Luxurious Estate in Aspen",
+      "segment_name": "Luxury",
+      "description": "This luxurious estate in Aspen offers a perfect blend of rustic charm and modern elegance. Situated amidst picturesque mountain scenery, this property features spacious interiors, a gourmet kitchen, and outdoor entertainment areas.",
+      "price": 20000000,
+      "status": "sale",
+      "area_sq_ft": 8000,
+      "location": "Aspen, Colorado",
+      "facilities": ["Ski-in/Ski-out Access", "Hot Tub", "Fireplace", "Guest House"]
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/Wsyks6Z/images.jpg",
+      "title": "Waterfront Estate in Miami",
+      "segment_name": "Luxury",
+      "description": "Experience the ultimate waterfront lifestyle in this magnificent estate in Miami. Boasting breathtaking views of the bay, this property offers luxurious indoor and outdoor living spaces, perfect for entertaining guests.",
+      "price": 22000000,
+      "status": "sale",
+      "area_sq_ft": 15000,
+      "location": "Miami, Florida",
+      "facilities": ["Private Dock", "Outdoor Kitchen", "Infinity Pool", "Home Automation System"]
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/FHJkDMn/download.jpg",
+      "title": "Luxury Penthouse in Dubai Marina",
+      "segment_name": "Luxury",
+      "description": "Elevate your lifestyle with this stunning penthouse in Dubai Marina. Offering breathtaking views of the city skyline and the Arabian Gulf, this residence features modern design, spacious interiors, and exclusive amenities.",
+      "price": 3000000,
+      "status": "sale",
+      "area_sq_ft": 6000,
+      "location": "Dubai Marina, Dubai",
+      "facilities": ["Private Terrace", "Infinity Pool", "Gym", "Concierge Service"]
+    },
+    {
+      "id": 7,
+      "image": "https://i.ibb.co/JRnYrqm/download.jpg",
+      "title": "Secluded Retreat in the Hamptons",
+      "segment_name": "Luxury",
+      "description": "Escape to this secluded retreat in the Hamptons, offering privacy and tranquility amidst lush greenery. With a private beach access, tennis court, and expansive outdoor living spaces, this property is an oasis of luxury.",
+      "price": 28000000,
+      "status": "sale",
+      "area_sq_ft": 18000,
+      "location": "The Hamptons, New York",
+      "facilities": ["Private Beach", "Tennis Court", "Pool House", "Outdoor Fireplace"]
+    },
+    {
+      "id": 8,
+      "image": "https://i.ibb.co/b6W31gg/download.jpg",
+      "title": "Contemporary Villa in Ibiza",
+      "segment_name": "Luxury",
+      "description": "Discover the epitome of contemporary luxury in this stunning villa in Ibiza. Featuring sleek architecture, minimalist interiors, and breathtaking sea views, this property offers the ultimate Mediterranean lifestyle.",
+      "price": 16000000,
+      "status": "sale",
+      "area_sq_ft": 7000,
+      "location": "Ibiza, Spain",
+      "facilities": ["Infinity Pool", "Jacuzzi", "Outdoor Kitchen", "Home Automation System"]
+    },
+    {
+      "id": 9,
+      "image": "https://i.ibb.co/SJkQv9b/images.jpg",
+      "title": "Historic Castle in Tuscany",
+      "segment_name": "Luxury",
+      "description": "Step back in time with this historic castle in the heart of Tuscany. Dating back to the Renaissance era, this property has been meticulously restored to its former glory, offering a unique blend of history and luxury.",
+      "price": 35000000,
+      "status": "sale",
+      "area_sq_ft": 25000,
+      "location": "Tuscany, Italy",
+      "facilities": ["Vineyard", "Helipad", "Chapel", "Formal Gardens"]
+    },
+    {
+      "id": 10,
+      "image": "https://i.ibb.co/gTGz6LH/download.jpg",
+      "title": "Spectacular Chalet in the Swiss Alps",
+      "segment_name": "Luxury",
+      "description": "Experience Alpine luxury in this spectacular chalet nestled in the Swiss Alps. With panoramic views of snow-capped peaks, this property offers ski-in/ski-out access, a private spa, and cozy interiors with modern amenities.",
+      "price": 30000000,
+      "status": "sale",
+      "area_sq_ft": 12000,
+      "location": "Swiss Alps, Switzerland",
+      "facilities": ["Ski-in/Ski-out Access", "Private Spa", "Wine Cellar"]
+    }
+]  
