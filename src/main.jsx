@@ -12,9 +12,11 @@ import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './Components/authProvider/AuthProvider';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import 'animate.css';
+// import 'animate.css';
 import LuxuryEstateDetails from './Components/LuxuryEstateDetails/LuxuryEstateDetails';
 import Gallery from './Components/Gallery/Gallery';
+import PrivateRoute from './Components/PrivateRoute/PriviteRoute'
+import UserProfile from './Components/UserProfile/UserProfile';
 // ..
 AOS.init();
 
@@ -33,7 +35,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/data/:id',
-        element: <LuxuryEstateDetails></LuxuryEstateDetails>,
+        element: <PrivateRoute>
+          <LuxuryEstateDetails></LuxuryEstateDetails>,
+        </PrivateRoute>,
         loader: async () => fetch(url),
 
       },
@@ -52,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/userProfile',
-        element: <userProfile></userProfile>
+        element: <UserProfile></UserProfile>
       },
       {
         path: '/gallery',

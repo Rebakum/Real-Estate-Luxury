@@ -2,105 +2,120 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 
 const Register = () => {
-  const passwordChecker= /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])/
+  const [showPassword, setShowPassword] = useState(false)
+  const passwordChecker = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])/
 
-    const {createUser} = useContext(AuthContext);
-    
-    //navigation sistem
-    const navigate = useNavigate();
-    const location = useLocation()
-    const from = location?.state || '/'
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-    
-      const onSubmit = (data) =>{
-        
-        const {email, password}= data;
-        if(passwordChecker.test(password)){
-          createUser(email, password)
-          .then(result=>{
-            console.log(result)
-            toast.success('Register Success')          
-            
-          })
-        }else{
-          
-          toast.warn('Invalid email or password')
-        }
-      
-       
-        };
-   
-    return (
-        <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Register Now</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+  //navigation sistem
+  const navigate = useNavigate();
+
+  const from = '/'
+
+  const onSubmit = (data) => {
+    const { email, password, fullName, image } = data;
+    if (passwordChecker.test(password)) {
+
+
+      createUser(email, password,)
+        .then(result => {
+          updateUserProfile(fullName, image)
+            .then(() => {
+              if (result.user) {
+                navigate(from)
+                toast.success('Register Success')
+              }
+              
+            })
+
+        })
+
+
+    }
+    else{
+      toast.warn('you are wrong')
+
+    }
+
+
+  };
+
+  return (
+
+    <div className="flex justify-center items-center mt-[100px]" data-aos="fade-up" data-aos-delay="300">
+
+      <div className="card shrink-0 w-full max-w-screen-md shadow-2xl p-10  bg-base-100 border border-blue-500">
+        <h1 className="text-center text-5xl font-bold text-blue-950">Register Form</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+
+          <div className="form-control text-xl">
+            <label className="label">
+              <span className="label-text text-xl">Full Name</span>
+            </label>
+            <input type="text" placeholder="Full Name" name="name" className="input input-bordered text-xl"  {...register("FullName", { required: true })} />
+            {errors.FullName && <span className="text-red-500">This field is required</span>}
           </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form  onSubmit={handleSubmit(onSubmit)} className="card-body">
 
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Full Name</span>
-                </label>
-                <input type="text" placeholder="Full Name" name="name" className="input input-bordered"  {...register("FullName", { required: true })}  />
-                {errors.FullName && <span className="text-red-500">This field is required</span>}
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo</span>
-                </label>
-                <input type="text"  placeholder="imade URL" name="image" className="input input-bordered" {...register("image")}  />
-                {errors.image && <span className="text-red-500">This field is required</span>}
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input type="email" placeholder="email" name="emai" className="input input-bordered" {...register("email", { required: true })} />
-                {errors.email && <span className="text-red-500">This field is required</span>}
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input type="text" placeholder="Password" name="password" className="input input-bordered" {...register("password", { required: true })}  />
-                {errors.password && <span className="text-red-500">This field is required</span>}
-
-                
-              </div>
-              <div className="form-control mt-6">
-                <button type="Submit" className="btn btn-primary">Register</button>
-              </div>
-
-              <label className="label">
-                Have an account?{" "}
-                <Link to="/login" className="label-text-alt link link-hover">
-                  Please Login
-                </Link>
-              </label>
-            </form>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-xl">Photo</span>
+            </label>
+            <input type="text" placeholder="imade URL" name="image" className="input input-bordered text-xl" {...register("image")} />
+            {errors.image && <span className="text-red-500">This field is required</span>}
           </div>
-        </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-xl">Email</span>
+            </label>
+            <input type="email" placeholder="Email" name="emai" className="input input-bordered text-xl" {...register("email", { required: true })} />
+            {errors.email && <span className="text-red-500">This field is required</span>}
+          </div>
+
+          <div className="form-control relative">
+            <label className="label">
+              <span className="label-text text-xl">Password</span>
+            </label>
+            <input type={showPassword ? 'text' : 'password'} placeholder="Password" name="password" className="input input-bordered text-xl" {...register("password", { required: true })} />
+            {errors.password && <span className="text-red-500">This field is required</span>}
+
+            <span onClick={() => setShowPassword(!showPassword)} className='absolute top-2/3 right-10'>
+              {
+                showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+              }
+            </span>
+
+
+          </div>
+          <div className="form-control mt-6">
+            <button type="Submit" className="btn btn-primary text-xl">Register</button>
+          </div>
+
+          <label className="label flex justify-center items-center text-xl">
+            Your have an account?{" "}
+            <Link to="/login" className="label-text-alt link link-hover text-xl text-blue-950">
+              Please Login
+            </Link>
+          </label>
+        </form>
       </div>
-    );
+    </div>
+
+  );
 };
 
 export default Register;

@@ -1,6 +1,6 @@
 
 
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebaseConfig";
 
@@ -17,29 +17,44 @@ const twiterProvider = new TwitterAuthProvider();
 
 
 const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState([])
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setloading] = useState(true);
 
-
+    console.log(loading)
     //createUser
     const createUser = (email, password) => {
+        setloading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     };
+     //update User profile
+     const updateUserProfile=(name, image)=>{
+      return  updateProfile(auth.currentUser, {
+            displayName: name,
+             photoURL:image
+          })
+        
+     }
+     
 
     //sign in user
     const signInUser = (email, password) => {
+        setloading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     //Google login
     const googleLogin = () => {
+        setloading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     // GitHub login
     const githubLogin = () => {
+        setloading(true)
         return signInWithPopup(auth, githubProvider)
     }
     //Twitter login
     const twitterLogin = () => {
+        setloading(true)
         return signInWithPopup(auth, twiterProvider)
     }
 
@@ -54,11 +69,15 @@ const AuthProvider = ({ children }) => {
 
     //observer
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-
-            setCurrentUser(user)
+        const unsubcribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                
+                setCurrentUser(user); 
+                setloading(false);
+            }
 
         });
+        return () => unsubcribe()
     }, [])
 
     const allValues = {
@@ -69,6 +88,8 @@ const AuthProvider = ({ children }) => {
         twitterLogin,
         logOut,
         currentUser,
+        loading,
+        updateUserProfile
     }
 
     return (

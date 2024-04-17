@@ -16,9 +16,10 @@ const Navbar = () => {
       <li className="mr-5 text-xl text-cyan-950 font-semibold"><NavLink to='/gallery'>Gallery</NavLink></li>
       <li className="mr-5 text-xl text-cyan-950 font-semibold"><NavLink to='/about'>About</NavLink></li>
     </>
+    console.log(currentUser)
 
   return (
-    <div className="navbar bg-base-100 fixed z-10 h-18  px-10">
+    <div className="navbar bg-base-100 fixed z-10 h-18 top-0 px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +40,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-          currentUser ?
+          currentUser?
             <div className='flex justify-center items-center gap-3'>
               <div className="tooltip tooltip-bottom" data-tip={`${currentUser?.displayName || 'Display name not found'}`}>
                 <div className="flex justify-center items-center">
@@ -55,7 +56,9 @@ const Navbar = () => {
 
                 </div>
               </div>
-              <button onClick={logOut} className='btn btn-ghosttext-xl text-cyan-950 font-semibold'>Log Out</button>
+              <button
+               onClick={logOut}
+                className='btn btn-ghost text-xl text-cyan-950 font-semibold'>Log Out</button>
             </div>
             :
             <Link to={"/login"} className='tooltip-top btn btn-ghost text-xl font-semibold text-cyan-950 '>Login</Link>

@@ -8,7 +8,7 @@ const Gallery = () => {
     const datas = useLoaderData()
 
     return (
-        <div>
+        <div className="mt-[68px]">
             <div className="mb-20 h-[300px] flex justify-center items-center bg-[linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('https://images.pexels.com/photos/678725/pexels-photo-678725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-center bg-cover">
                 <h1 className=" gallery text-6xl font-bold p-10 text-orange-900 ">GALLERY</h1>
             </div>

@@ -2,6 +2,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub, FaTwitter } from "react-icons/fa";
 
 
 
@@ -14,43 +16,44 @@ const SocialLogin = () => {
     const location = useLocation()
     const from = location?.state || '/'
 
-    // const handleSocialLogin = (socialProvider) => {
-    //     if (socialProvider == googleLogin) {
-    //         googleLogin()
-    //             .then(result => {
-    //                 clg
-            
 
-    //             })
-    //     }
 
-    // }
+    const handleSocialLogin = (socialProvider) => {
+        socialProvider()
+            .then(result => {
+                if (result.user) {
+                    navigate(from)
+
+                }
+            })
+
+    }
     return (
         <>
-            <div className="divider"> Continue with</div>
+            <div className="divider my-6"> Continue with</div>
 
-            <div className="flex gap-3">
+            <div className="flex justify-center items-center gap-3">
                 <button
-                    onClick={googleLogin}
-                    className="btn btn-secondary">
-                    Google
+                    onClick={() => handleSocialLogin(googleLogin)}
+                    className="btn text-4xl">
+                    <FcGoogle></FcGoogle>
                 </button>
                 <button
-                    onClick={githubLogin}
-                    className="btn btn-secondary">
-                    Github
+                    onClick={() => handleSocialLogin(githubLogin)}
+                    className="btn text-4xl">
+                   <FaGithub></FaGithub>
                 </button>
                 <button
-                    onClick={twitterLogin}
-                    className="btn btn-secondary">
-                    Twiter
+                    onClick={() => handleSocialLogin(twitterLogin)}
+                    className="btn text-4xl">
+                   <FaTwitter></FaTwitter>
                 </button>
             </div>
 
 
 
 
-        </>
+        </> 
     );
 };
 
