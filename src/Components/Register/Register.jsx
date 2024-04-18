@@ -1,5 +1,5 @@
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { useContext, useState } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 
 
@@ -14,7 +15,7 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
   const passwordChecker = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])/
 
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, setCurrentUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -24,6 +25,8 @@ const Register = () => {
   //navigation sistem
   const navigate = useNavigate();
 
+
+
   const from = '/'
 
   const onSubmit = (data) => {
@@ -32,26 +35,32 @@ const Register = () => {
     if (passwordChecker.test(password)) {
 
 
-      createUser(email, password,)
+      createUser(email, password)
         .then(result => {
-         if(result.user){
-          updateUserProfile(name, photo)
-
-          .then(() => {
-           toast.success('your ok')
-              navigate(from)
-             
+          if (result.user) {
            
-            
-          })
-         }
+            updateProfile(result.user, {
+              displayName: name,
+              photoURL: photo
+            })
+              .then(() => {
+                setCurrentUser({
+                  displayName: name,
+                  photoURL: photo
+                })
+                navigate(from)
+
+                toast.success(' Yeah You have registered successfully ')
+
+              })
+          }
 
         })
 
 
     }
-    else{
-      toast.warn('you are wrong')
+    else {
+      toast.warn('Failed to create user')
 
     }
 
@@ -106,7 +115,9 @@ const Register = () => {
 
           </div>
           <div className="form-control mt-6">
+
             <button type="Submit" className="btn btn-primary text-xl">Register</button>
+
           </div>
 
           <label className="label flex justify-center items-center text-xl">

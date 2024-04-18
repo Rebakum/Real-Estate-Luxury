@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
             displayName: name,
              photoURL:photo
           })
-        
+                  
      }
      
 
@@ -90,7 +90,9 @@ const AuthProvider = ({ children }) => {
         logOut,
         currentUser,
         loading,
-        updateUserProfile
+        updateUserProfile,
+        setCurrentUser
+        
     }
 
     return (

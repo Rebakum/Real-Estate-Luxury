@@ -16,6 +16,7 @@ import Gallery from './Components/Gallery/Gallery';
 import PrivateRoute from './Components/PrivateRoute/PriviteRoute'
 import UserProfile from './Components/UserProfile/UserProfile';
 import About from './Components/About/About';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // ..
 AOS.init();
@@ -65,7 +66,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About></About>
+        element: <About></About>,
+        loader: async () => fetch(url)
       }
     ]
   },
@@ -73,9 +75,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <HelmetProvider>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    </HelmetProvider>
+   
 
   </React.StrictMode>,
 )

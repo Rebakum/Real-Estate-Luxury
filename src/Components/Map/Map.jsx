@@ -11,6 +11,7 @@ const map = () => {
         mapRef.current = map;
     }, []};
     if(loadError) return 'Error';
+    if(!isLoaded) return 'maps';
     return (
         <div>
            <div className='mt-[100px]'>

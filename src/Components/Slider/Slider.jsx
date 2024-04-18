@@ -6,56 +6,58 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
 import "swiper/css/bundle";
-import { Navigation, Autoplay,  Pagination } from 'swiper/modules';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 
 
 
 const Slider = () => {
     return (
-       <div >
-         <Swiper
-      
-            navigation={true}
-            pagination={
-               {clickable: true}
-            }
-            modules={[Navigation, Autoplay,  Pagination]}
-             autoplay={
-                {
-                delay: 2500
-                
-              }
-            }
-           
-            className="mySwiper h-[800px]"
-            loop={true}
-           
-        >
-            <SwiperSlide>
-                <div className='slider1 '>
-                <img className='w-full h-[800px]' src={slider1} alt="" />
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='slider2'>
-                    <img className='w-full h-[800px]' src={slider2} alt="" />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='slider3'>
-                    <img className='w-full h-[800px]' src={slider3} alt="" />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='slider4'>
-                    <img className='w-full h-[800px]' src={slider4} alt="" />
-                </div>
-            </SwiperSlide>
-        </Swiper>
+        <div >
+            <Swiper
 
-       </div>
+                navigation={true}
+                pagination={
+                    { clickable: true }
+                }
+                modules={[Navigation, Autoplay, Pagination]}
+                autoplay={
+                    {
+                        delay: 2500
 
-        
+                    }
+                }
+
+                className="mySwiper h-[800px]"
+                loop={true}
+
+            >
+                <SwiperSlide>
+                    <div className='slider1 '>
+                        <img className='w-full h-[800px]' src={slider1} alt="" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='slider2'>
+                        <img className='w-full h-[800px]' src={slider2} alt="" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='slider3'>
+                        <img className='w-full h-[800px]' src={slider3} alt="" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='slider4'>
+                        <img className='w-full h-[800px]' src={slider4} alt="" />
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+
+            
+
+        </div>
+
+
     );
 };
 

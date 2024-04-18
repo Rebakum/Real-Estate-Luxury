@@ -8,6 +8,7 @@ import homeImg from "../../assets/images/home.jpg";
 
 const Navbar = () => {
   const { logOut, currentUser } = useContext(AuthContext);
+  
   const navLinks =
     <>
       <li className="mr-5 text-xl text-cyan-950 font-semibold"><NavLink to='/'>Home</NavLink></li>

@@ -3,7 +3,7 @@
 
 [![N| Solid (https://github.com/Rebakum/Real-Estate-Luxury)]]
 
-[![Build Status](
+[![Build Status](https://real-state-luxury.firebaseapp.com/gallery)]
 
 ## Features
 
