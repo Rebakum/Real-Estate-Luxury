@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 
@@ -10,6 +11,12 @@ const LuxuryEstateDetails = () => {
 
 
     return (
+        <div >
+          
+            <Helmet>
+                <title>LuxuryEstateDetails</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
         <div className="mt-[90px]">
             <div className="text-4xl lg:text-6xl font-bold p-2 lg:p-10 bg-blue-950 text-white mb-20 h-[300px] flex justify-center items-center">
                 <h2 className="animate__animated animate__fadeInLeft">Luxury Estate Details</h2>
@@ -48,6 +55,7 @@ const LuxuryEstateDetails = () => {
 
             </div>
 
+        </div>
         </div>
     );
 };

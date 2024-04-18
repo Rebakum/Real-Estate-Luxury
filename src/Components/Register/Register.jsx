@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -69,7 +70,15 @@ const Register = () => {
 
   return (
 
-    <div className="flex justify-center items-center mt-[100px]" data-aos="fade-up" data-aos-delay="300">
+    <div>
+      <Helmet>
+        <title>Home</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
+      
+      <div  className="flex justify-center items-center mt-[100px]" data-aos="fade-up" data-aos-delay="300">
+
+     
 
       <div className="card shrink-0 w-full max-w-screen-md shadow-2xl p-10  bg-base-100 border border-blue-500">
         <h1 className="text-center text-5xl font-bold text-blue-950">Register Form</h1>
@@ -128,6 +137,7 @@ const Register = () => {
           </label>
         </form>
       </div>
+    </div>
     </div>
 
   );

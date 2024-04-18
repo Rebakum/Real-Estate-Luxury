@@ -2,6 +2,7 @@
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateProfile = () => {
@@ -30,6 +31,11 @@ const UpdateProfile = () => {
     }
 
     return (
+        <div>
+            <Helmet>
+                <title>UpdateProfile</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
         <div className="flex justify-center items-center  mt-[100px]">
 
 
@@ -65,6 +71,7 @@ const UpdateProfile = () => {
 
             </div>
 
+        </div>
         </div>
     );
 };

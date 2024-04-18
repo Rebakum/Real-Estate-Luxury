@@ -2,6 +2,7 @@ import homeImg from "../../assets/images/home.jpg";
 
 const Footer = () => {
   return (
+    
     <footer className="footer px-20 py-10 bg-blue-950 text-yellow-50 transition flex justify-between" data-aos="fade-up" data-aos-delay="300">
       <aside>
         <img className="w-20 h-20" src={homeImg} alt="" />

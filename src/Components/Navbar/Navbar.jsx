@@ -8,7 +8,7 @@ import homeImg from "../../assets/images/home.jpg";
 
 const Navbar = () => {
   const { logOut, currentUser } = useContext(AuthContext);
-  
+
   const navLinks =
     <>
       <li className="mr-5 text-xl text-cyan-950 font-semibold"><NavLink to='/'>Home</NavLink></li>
@@ -20,6 +20,7 @@ const Navbar = () => {
     console.log(currentUser)
 
   return (
+    
     <div className="navbar bg-base-100 fixed z-10 h-18 top-0 px-10">
       <div className="navbar-start">
         <div className="dropdown">
