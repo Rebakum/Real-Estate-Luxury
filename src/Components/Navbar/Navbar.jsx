@@ -42,14 +42,13 @@ const Navbar = () => {
         {
           currentUser?
             <div className='flex justify-center items-center gap-3'>
-              <div className="tooltip tooltip-bottom" data-tip={`${currentUser?.displayName || 'Display name not found'}`}>
+              <div className="tooltip tooltip-bottom" data-tip={`${currentUser?.displayName}`}>
                 <div className="flex justify-center items-center">
                   <div className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full flex justify-center items-center">
                       {
-                        currentUser?.photoURL ?
-                          <img alt="user photo" src={currentUser?.photoURL} /> :
-                          <FaUser className='text-3xl mt-1 ml-1  text-black'></FaUser>
+                        
+                          <img alt="user photo" src={currentUser?.photoURL} />
                       }
                     </div>
                   </div>

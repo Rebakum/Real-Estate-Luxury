@@ -27,20 +27,24 @@ const Register = () => {
   const from = '/'
 
   const onSubmit = (data) => {
-    const { email, password, fullName, image } = data;
+    const { email, password, name, photo } = data;
+    console.log(name, photo)
     if (passwordChecker.test(password)) {
 
 
       createUser(email, password,)
         .then(result => {
-          updateUserProfile(fullName, image)
-            .then(() => {
-              if (result.user) {
-                navigate(from)
-                toast.success('Register Success')
-              }
-              
-            })
+         if(result.user){
+          updateUserProfile(name, photo)
+
+          .then(() => {
+           toast.success('your ok')
+              navigate(from)
+             
+           
+            
+          })
+         }
 
         })
 
@@ -66,7 +70,7 @@ const Register = () => {
             <label className="label">
               <span className="label-text text-xl">Full Name</span>
             </label>
-            <input type="text" placeholder="Full Name" name="name" className="input input-bordered text-xl"  {...register("FullName", { required: true })} />
+            <input type="text" placeholder="Full Name" name="name" className="input input-bordered text-xl"  {...register("name", { required: true })} />
             {errors.FullName && <span className="text-red-500">This field is required</span>}
           </div>
 
@@ -74,7 +78,7 @@ const Register = () => {
             <label className="label">
               <span className="label-text text-xl">Photo</span>
             </label>
-            <input type="text" placeholder="imade URL" name="image" className="input input-bordered text-xl" {...register("image")} />
+            <input type="text" placeholder="imade URL" name="photo" className="input input-bordered text-xl" {...register("photo")} />
             {errors.image && <span className="text-red-500">This field is required</span>}
           </div>
 

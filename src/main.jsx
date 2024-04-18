@@ -7,16 +7,16 @@ import Home from './Components/Home/Home';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import UpdateProfile from './Components/UpdateProfile/UpdateProfile';
-import About from './About/About';
 import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './Components/authProvider/AuthProvider';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-// import 'animate.css';
 import LuxuryEstateDetails from './Components/LuxuryEstateDetails/LuxuryEstateDetails';
 import Gallery from './Components/Gallery/Gallery';
 import PrivateRoute from './Components/PrivateRoute/PriviteRoute'
 import UserProfile from './Components/UserProfile/UserProfile';
+import About from './Components/About/About';
+
 // ..
 AOS.init();
 
