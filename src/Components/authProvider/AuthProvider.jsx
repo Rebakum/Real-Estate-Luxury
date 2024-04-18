@@ -18,6 +18,7 @@ const twiterProvider = new TwitterAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
+    console.log(currentUser)
     const [loading, setloading] = useState(true);
 
     console.log(loading)

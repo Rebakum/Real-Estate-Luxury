@@ -1,38 +1,33 @@
-import { useContext } from "react";
-import { AuthContext } from "../authProvider/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { register } from "swiper/element";
+
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebaseConfig";
-
+import { useNavigate } from "react-router-dom";
 
 
 const UpdateProfile = () => {
-    const {
 
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const navigate = useNavigate()
+    const redirect = () => {
+        window.location.reload()
 
-    const { currentUser } = useContext(AuthContext);
-    const navigate = useNavigate();
 
-    const onSubmit = data => {
-        const { fullName, image } = data;
-       return updateProfile(auth.currentUser, {
-            displayName: fullName,
-            photoURL: image
-        }).then(() => {
-            console.log(currentUser)
-            navigate('./UserProfile')
-            // ...
-        }).catch((error) => {
-            // An error occurred
-            // ...
-        });
     }
 
+    const handelUpdate = (e) => {
+        e.preventDefault()
+        const name = e.target.name.value
+        const photo = e.target.photo.value
+        console.log(name, photo)
+        updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
+            .then(() => {
+                setTimeout(redirect, 0)
+                navigate('/userProfile')
+            })
+
+    }
 
     return (
         <div className="flex justify-center items-center  mt-[100px]">
@@ -43,27 +38,27 @@ const UpdateProfile = () => {
                 <h1 className="text-4xl font-bold text-center text-blue-950">UPDATE  PROFILE</h1>
 
 
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                <form onSubmit={handelUpdate} className="card-body">
 
-                    <div className="form-control" data-aos="fade-up" data-aos-delay="600">
+                    <div className="form-control" >
                         <label className="label">
                             <span className="label-text text-xl ">Name:</span>
                         </label>
-                        <input type="text" placeholder="Name" name="name" className="input input-bordered outline-none border-none text-xl"  {...register("FullName", { required: true })} />
+                        <input type="text" placeholder="Name" name="name" className="input input-bordered outline-none border-none text-xl" />
                     </div>
 
-                    <div className="form-control" data-aos="fade-up" data-aos-delay="900">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text text-xl">Photo URL:</span>
                         </label>
-                        <input type="text" placeholder="Photo Url" name="photo" className="input input-bordered outline-none text-xl border-none"  {...register("FullName", { required: true })} />
+                        <input type="text" placeholder="Photo Url" name="photo" className="input input-bordered outline-none text-xl border-none" />
 
                     </div>
 
                     <div className="form-control mt-6" data-aos="fade-up" data-aos-delay="1200">
-                        <Link to='/UserProfile'>
-                            <button className="btn bg-blue-950 text-white text-xl">Update Now</button>
-                        </Link>
+
+                        <button className="btn bg-blue-950 text-white text-xl">Update Now</button>
+
                     </div>
 
                 </form>
@@ -75,3 +70,45 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
